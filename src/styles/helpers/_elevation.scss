@@ -1,0 +1,6 @@
+// This creates the classes for each elevation dp with numbers from 1 to 24
+@for $elevation from 1 through 24 {
+  .elevation-#{$elevation} {
+    @include elevation($elevation);
+  }
+}

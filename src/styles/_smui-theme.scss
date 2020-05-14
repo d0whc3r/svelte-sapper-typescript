@@ -1,0 +1,91 @@
+@import "~@material/theme/color-palette";
+
+$mdc-theme-primary: #1976D2;
+$mdc-theme-secondary: #424242;
+$mdc-theme-background: $material-color-grey-200;
+$mdc-theme-surface: $material-color-grey-100;
+$mdc-theme-error: $material-color-red-900;
+$mdc-typography-font-family: "Roboto Condensed", sans-serif !default;
+//$mdc-theme-on-primary : $material-color-grey-800;
+//$mdc-theme-on-secondary : black;
+//$mdc-theme-on-surface : $material-color-grey-800;
+//$mdc-theme-on-error : black;
+//$mdc-theme-text-primary-on-background : white;
+//$mdc-theme-text-secondary-on-background : hsla(0,0%,100%,0.7);
+//$mdc-theme-text-hint-on-background : hsla(0,0%,100%,0.5);
+//$mdc-theme-text-disabled-on-background : hsla(0,0%,100%,0.5);
+//$mdc-theme-text-icon-on-background : hsla(0,0%,100%,0.5);
+//$mdc-theme-text-primary-on-light : rgba(0,0,0,0.87);
+//$mdc-theme-text-secondary-on-light : rgba(0,0,0,0.54);
+//$mdc-theme-text-hint-on-light : rgba(0,0,0,0.38);
+//$mdc-theme-text-disabled-on-light : rgba(0,0,0,0.38);
+//$mdc-theme-text-icon-on-light : rgba(0,0,0,0.38);
+//$mdc-theme-text-primary-on-dark : white;
+//$mdc-theme-text-secondary-on-dark : hsla(0,0%,100%,0.7);
+//$mdc-theme-text-hint-on-dark : hsla(0,0%,100%,0.5);
+//$mdc-theme-text-disabled-on-dark : hsla(0,0%,100%,0.5);
+//$mdc-theme-text-icon-on-dark : hsla(0,0%,100%,0.5);
+
+@import "~@material/typography/mdc-typography";
+@import "~@material/theme/mdc-theme";
+@import "~@material/elevation/mdc-elevation";
+@import "~@material/textfield/mixins";
+
+body {
+  background: $mdc-theme-background;
+}
+
+// can add this to style typography automatically
+html {
+  @include mdc-typography('body1');
+}
+
+h1 {
+  @include mdc-typography('headline1');
+}
+
+h2 {
+  @include mdc-typography('headline2');
+}
+
+h3 {
+  @include mdc-typography('headline3');
+}
+
+h4 {
+  @include mdc-typography('headline4');
+}
+
+h5 {
+  @include mdc-typography('headline5');
+}
+
+h6 {
+  @include mdc-typography('headline6');
+}
+
+caption {
+  @include mdc-typography('caption');
+}
+
+code,
+pre {
+  font-family: 'Roboto Mono', monospace;
+}
+
+small {
+  font-size: 0.9em;
+}
+
+big {
+  font-size: 1.1em;
+}
+
+b,
+strong {
+  font-weight: bold;
+}
+
+.invalid-field {
+  @include mdc-text-field-invalid_;
+}

@@ -1,0 +1,30 @@
+@import "./fonts/roboto";
+@import "./icons/material";
+@import "./smui-theme";
+@import "./utils";
+@import "./load";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding-bottom: 1rem;
+  display: flex;
+  line-height: 1;
+}
+
+a.active {
+  font-weight: bold;
+}
+
+.pointer {
+  cursor: pointer;
+}

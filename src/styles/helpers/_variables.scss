@@ -1,0 +1,185 @@
+$white: #fff !default;
+$gray-100: #f8f9fa !default;
+$gray-200: #e9ecef !default;
+$gray-300: #dee2e6 !default;
+$gray-400: #ced4da !default;
+$gray-500: #adb5bd !default;
+$gray-600: #6c757d !default;
+$gray-700: #495057 !default;
+$gray-800: #343a40 !default;
+$gray-900: #212529 !default;
+$black: #000 !default;
+
+// fusv-disable
+$grays: (
+  "100": $gray-100,
+  "200": $gray-200,
+  "300": $gray-300,
+  "400": $gray-400,
+  "500": $gray-500,
+  "600": $gray-600,
+  "700": $gray-700,
+  "800": $gray-800,
+  "900": $gray-900
+) !default;
+// fusv-enable
+
+//$blue: #0d6efd !default;
+//$indigo: #6610f2 !default;
+//$purple: #6f42c1 !default;
+//$pink: #d63384 !default;
+//$red: #dc3545 !default;
+//$orange: #fd7e14 !default;
+//$yellow: #ffc107 !default;
+//$green: #28a745 !default;
+//$teal: #20c997 !default;
+//$cyan: #17a2b8 !default;
+//
+//// scss-docs-start colors-map
+//$colors: (
+//  "blue": $blue,
+//  "indigo": $indigo,
+//  "purple": $purple,
+//  "pink": $pink,
+//  "red": $red,
+//  "orange": $orange,
+//  "yellow": $yellow,
+//  "green": $green,
+//  "teal": $teal,
+//  "cyan": $cyan,
+//  "white": $white,
+//  "gray": $gray-600,
+//  "gray-dark": $gray-800
+//) !default;
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px
+) !default;
+
+$spacer: 1rem !default;
+$spacers: (
+  0: 0,
+  1: $spacer / 4,
+  2: $spacer / 2,
+  3: $spacer,
+  4: $spacer * 1.5,
+  5: $spacer * 3,
+) !default;
+
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1320px
+) !default;
+
+@include _assert-ascending($container-max-widths, "$container-max-widths");
+
+$grid-columns: 12 !default;
+$grid-gutter-width: 1.5rem !default;
+$grid-row-columns: 6 !default;
+
+$gutters: $spacers !default;
+
+// Characters which are escaped by the escape-svg function
+$escaped-characters: (
+    ("<", "%3c"),
+    (">", "%3e"),
+    ("#", "%23"),
+    ("(", "%28"),
+    (")", "%29"),
+) !default;
+
+$min-contrast-ratio: 3 !default;
+
+// Customize the light and dark text colors for use in our color contrast function.
+$color-contrast-dark: $gray-900 !default;
+$color-contrast-light: $white !default;
+
+$body-bg: $white !default;
+$body-color: $gray-900 !default;
+$body-text-align: null !default;
+
+$font-size-root: null !default;
+$font-size-base: 1rem !default; // Assumes the browser default, typically `16px`
+$font-size-sm: $font-size-base * .875 !default;
+$font-size-lg: $font-size-base * 1.25 !default;
+
+$font-weight-lighter: lighter !default;
+$font-weight-light: 300 !default;
+$font-weight-normal: 400 !default;
+$font-weight-bold: 700 !default;
+$font-weight-bolder: bolder !default;
+
+$font-weight-base: $font-weight-normal !default;
+
+$line-height-base: 1.5 !default;
+$line-height-sm: 1.25 !default;
+$line-height-lg: 2 !default;
+
+$h1-font-size: $font-size-base * 2.5 !default;
+$h2-font-size: $font-size-base * 2 !default;
+$h3-font-size: $font-size-base * 1.75 !default;
+$h4-font-size: $font-size-base * 1.5 !default;
+$h5-font-size: $font-size-base * 1.25 !default;
+$h6-font-size: $font-size-base !default;
+
+$border-width: 1px !default;
+$border-color: $gray-300 !default;
+
+$border-radius: .25rem !default;
+$border-radius-sm: .2rem !default;
+$border-radius-lg: .3rem !default;
+
+$rounded-pill: 50rem !default;
+
+$displays: (
+  inline,
+  block,
+  list-item,
+  run-in,
+  inline-block,
+  table,
+  inline-table,
+  table-row-group,
+  table-header-group,
+  table-footer-group,
+  table-row,
+  table-column-group,
+  table-column,
+  table-cell,
+  table-caption,
+  none
+) !default;
+
+$sizes: (
+  5: 5%,
+  10: 10%,
+  15: 15%,
+  20: 20%,
+  25: 25%,
+  30: 30%,
+  35: 35%,
+  40: 40%,
+  45: 45%,
+  50: 50%,
+  55: 55%,
+  60: 60%,
+  65: 65%,
+  70: 70%,
+  75: 75%,
+  80: 80%,
+  85: 85%,
+  90: 90%,
+  95: 95%,
+  100: 100%,
+  auto: auto
+) !default;
+
+$enable-grid-classes: true !default;
