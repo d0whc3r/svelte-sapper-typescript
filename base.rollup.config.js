@@ -2,7 +2,8 @@
 
 const __chunk_3 = require('sapper/dist/chunk3');
 
-const sourcemap = __chunk_3.dev ? 'inline' : false;
+// const sourcemap = __chunk_3.dev ? 'inline' : false;
+const sourcemap = __chunk_3.dev;
 
 const rollup = {
   dev: __chunk_3.dev,

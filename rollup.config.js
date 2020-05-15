@@ -16,6 +16,7 @@ import nested from 'postcss-nested';
 import cssnext from 'postcss-cssnext';
 import cssnano from 'cssnano';
 import json from '@rollup/plugin-json';
+import sourcemaps from 'rollup-plugin-sourcemaps';
 
 const mode = process.env.NODE_ENV;
 const dev = mode === 'development';
@@ -25,20 +26,24 @@ const onwarn = (warning, onWarn) => (warning.code === 'CIRCULAR_DEPENDENCY' && /
 
 const nodeModules = 'node_modules/**';
 
+const sourceMap = false;
+
 export default {
   client: {
     input: config.client.input(),
     output: config.client.output(),
+    preserveEntrySignatures: false,
     plugins: [
       replace({
         'process.browser': true,
         'process.env.NODE_ENV': JSON.stringify(mode)
       }),
-      commonjs({ include: nodeModules, extensions: ['.js', '.ts'] }),
-      typescript({
-        module: 'esnext',
-        target: 'esnext',
-        sourceMap: false
+      svelte({
+        dev,
+        hydratable: true,
+        emitCss: true,
+        format: 'esm',
+        preprocess: autoPreprocess()
       }),
       resolve({
         extensions: ['.ts', '.js', '.node', '.mjs'],
@@ -46,13 +51,19 @@ export default {
         jsnext: true,
         main: true,
         browser: true,
+        modulesOnly: true,
         dedupe: ['svelte']
       }),
-      svelte({
-        dev,
-        hydratable: true,
-        emitCss: true,
-        preprocess: autoPreprocess()
+      typescript({
+        module: 'esnext',
+        target: 'esnext',
+        sourceMap
+      }),
+      commonjs({
+        transformMixedEsModules: true,
+        // exclude: ['node_modules/sapper/sapper-dev-client.js'],
+        include: nodeModules,
+        extensions: ['.js', '.ts', '.mjs']
       }),
       json({
         compact: !dev
@@ -107,6 +118,7 @@ export default {
             }]
         ]
       }),
+      sourcemaps(),
 
       !dev && terser({
         module: true
@@ -124,11 +136,11 @@ export default {
         'process.browser': false,
         'process.env.NODE_ENV': JSON.stringify(mode)
       }),
-      commonjs({ include: nodeModules, extensions: ['.js', '.ts'] }),
+      commonjs({ include: nodeModules, extensions: ['.js', '.ts', '.mjs'] }),
       typescript({
         module: 'esnext',
         target: 'esnext',
-        sourceMap: false
+        sourceMap
       }),
       resolve({
         extensions: ['.ts', '.js', '.node', '.mjs'],
@@ -140,11 +152,13 @@ export default {
       svelte({
         generate: 'ssr',
         dev,
+        format: 'esm',
         preprocess: autoPreprocess()
       }),
       json({
         compact: !dev
-      })
+      }),
+      sourcemaps()
     ],
     external: Object.keys(pkg.dependencies).concat(
       require('module').builtinModules || Object.keys(process.binding('natives'))
@@ -169,6 +183,12 @@ export default {
         'process.env.NODE_ENV': JSON.stringify(mode)
       }),
       commonjs({ include: nodeModules, extensions: ['.js', '.ts'] }),
+      typescript({
+        module: 'esnext',
+        target: 'esnext',
+        sourceMap
+      }),
+      sourcemaps(),
       !dev && terser()
     ],
 
